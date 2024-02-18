@@ -10,6 +10,7 @@ const PracticeImageUploader = () => {
     console.log(index);
     setImages(imageList);
   };
+  
   return (
     <ReactImageUploading
       value={images}
@@ -33,7 +34,10 @@ const PracticeImageUploader = () => {
           <button onClick={onImageRemoveAll}>Remove All Images</button>
           {imageList.map((image, index) => (
             <div>
-              <img src={image["data_url"]} width='200' />
+              <img
+                src={image["data_url"]}
+                style={{ width: "200px", borderRadius: "50%" }}
+              />
               <button onClick={() => onImageUpdate(index)}>update image</button>
               <button onClick={() => onImageRemove(index)}>Remove image</button>
             </div>
