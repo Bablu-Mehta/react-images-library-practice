@@ -29,12 +29,13 @@ const ImageUploader = () => {
         }) => (
           <div>
             <button onClick={onImageUpload} {...dragProps}>
-              Click Or Drag here
+              {isDragging ? "Please Drop here" : "Click here or drop here"}
             </button>
+
             <button onClick={onImageRemoveAll}>Remove all images</button>
             {imageList.map((image, index) => (
               <div key={index}>
-                <img src={image["data_url"]} alt="" width="100" />
+                <img src={image["data_url"]} alt="" width="200" />
                 <div>
                   <button onClick={() => onImageUpdate(index)}>Update</button>
                   <button onClick={() => onImageRemove(index)}>Remove</button>
@@ -44,7 +45,6 @@ const ImageUploader = () => {
           </div>
         )}
       </ReactImageUploading>
-      <h1>hey there</h1>
     </div>
   );
 };
